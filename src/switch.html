@@ -1,0 +1,260 @@
+<section>
+	<section data-markdown>
+		## Estructura Switch
+	</section>
+
+	<section data-markdown>
+		<script type="text/template">
+		## Estructura Switch: Definición
+
+		Esta estructura se usa cuando se tiene una instrucción if enlazada en la cual las condiciones consisten en comparar una misma variable con grupos de valores constantes de forma repetida.
+
+		<!-- .element: class="fragment" -->
+		El aspecto general de una instrucción switch es la siguiente:
+
+		- <!-- .element: class="fragment" -->
+		La variable aparece únicamente como parámetro de la instrucción switch.
+		- <!-- .element: class="fragment" -->
+		Cada uno de los valores puntuales se trata como un caso, especificando la palabra case seguido de la variable y terminando con : (dos puntos).
+		</script>
+	</section>
+
+	<section data-markdown>
+		<script type="text/template">
+		## Estructura Switch: Definición
+
+		- A continuación se escribe el cuerpo de instrucciones a realizar en cada caso.
+		- <!-- .element: class="fragment" -->
+		Se termina con una instrucción break que obliga a que se deje de ejecutar la instrucción switch.
+		- <!-- .element: class="fragment" -->
+		Como en el caso de la instrucción if enlazada el último else es opcional y se ejecuta cuando ningún otro caso es ejecutado, en el caso del switch existe la instrucción default que realiza las mismas funciones.
+		</script>
+	</section>
+
+	<section data-markdown>
+		## Estructura Switch: Esquema en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+	// Instrucciones
+
+	switch(//Variable)
+	{
+	    case //Valor 1:
+	        // Instruccion 1 cuando la variable toma el 1er valor
+	        // Instruccion 2 cuando la variable toma el 1er valor
+	        // ...
+	        // Instruccion m cuando la variable toma el 1er valor
+	    break;
+	    case //Valor 2:
+	        // Instruccion 1 cuando la variable toma el 2do valor
+	        // Instruccion 2 cuando la variable toma el 2do valor
+	        // ...
+	        // Instruccion n cuando la variable toma el 2do valor
+	    break;
+	    // ...
+	    case //Valor i:
+	        // Instruccion 1 cuando la variable toma el i-esimo valor
+	        // Instruccion 2 cuando la variable toma el i-esimo valor
+	        // ...
+	        // Instruccion o cuando la variable toma el i-esimo valor
+	    break;
+	    // ...
+	    case //Valor n-1:
+	        // Instruccion 1 cuando la variable toma el n-1-esimo valor
+	        // Instruccion 2 cuando la variable toma el n-1-esimo valor
+	        // ...
+	        // Instruccion p cuando la variable toma el n-1-esimo valor
+	    break;
+	    default:
+	        // Instruccion 1 cuando la variable toma ninguno de los valores
+	        // Instruccion 2 cuando la variable toma ninguno de los valores
+	        // ...
+	        // Instruccion q cuando la variable toma ninguno de los valores
+	    break;
+	}
+
+	// Mas instrucciones
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura Switch: Ejemplo
+
+		Dado un caracter, determinar si este es una vocal minúscula.
+	</section>
+
+	<section data-markdown>
+		## Estructura Switch: Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+bool esVocal(char c)
+{
+	return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+}
+
+int main()
+{
+	char c = 0;
+	cout << "Ingrese un caracter: \t";
+	cin >> c;
+	cout << esVocal(c) << endl;
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura Switch: Ejemplo en Python
+
+```python
+def esVocal(c):
+	return c == 'a' or c == 'e' or c == 'i' or c == 'o' or c == 'u'
+
+c = str(input("Ingrese un caracter: \t"))
+print(str(esVocal(c)))
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura Switch: Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+bool esVocal(char c)
+{
+	switch(c)
+	{
+	    case 'a':
+	        return true;
+	    break;
+	    case 'e':
+	        return true;
+	    break;
+	    case 'i':
+	        return true;
+	    break;
+	    case 'o':
+	        return true;
+	    break;
+	    case 'u':
+	        return true;
+	    break;
+	    default:
+	        return false;
+	    break;
+	}
+}
+
+int main()
+{
+	char c = 0;
+	cout << "Ingrese un caracter: \t";
+	cin >> c;
+	cout << esVocal(c) << endl;
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura Switch: Ejemplo
+
+		Cuando en una instrucción switch varios casos se tratan de la misma forma, entonces estos se pueden agrupar en uno o varios casos, como se muestra a continuación:
+	</section>
+
+	<section data-markdown>
+		## Estructura Switch: Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+bool esVocal(char c)
+{
+	switch(c)
+	{
+	    case 'a':
+	    case 'e':
+	    case 'i':
+	    case 'o':
+	    case 'u':
+	        return true;
+	    break;
+	    default:
+	        return false;
+	    break;
+	}
+}
+
+int main()
+{
+	char c = 0;
+	cout << "Ingrese un caracter: \t";
+	cin >> c;
+	cout << esVocal(c) << endl;
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura Switch: Ejemplo
+
+		Es usual que las instructiones que se ejecutan dentro de los casos de una instrucción switch se retornen directamente cuando se calculen dentro de una función, para estos casos, en vez de dejar de ejecutar el switch con un break, se puede retornar el valor directamente mediante el uso de la instrucción return.
+	</section>
+
+	<section data-markdown>
+		## Estructura Switch: Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+bool esVocal(char c)
+{
+	switch(c)
+	{
+	    case 'a':
+	    case 'e':
+	    case 'i':
+	    case 'o':
+	    case 'u':
+	        return true;
+	    default:
+	        return false;
+	}
+}
+
+int main()
+{
+	char c = 0;
+	cout << "Ingrese un caracter: \t";
+	cin >> c;
+	cout << esVocal(c) << endl;
+
+	return 0;
+}
+```
+	</section>
+</section>

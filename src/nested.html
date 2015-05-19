@@ -1,0 +1,304 @@
+<section>
+	<section data-markdown>
+		## Condicionales Enlazados
+	</section>
+
+	<section data-markdown>
+		## Condicionales Enlazados: Definición
+
+		Otra de las opciones para utilizar una estructura condicional es la de enlazar varias estructuras condicionales, de tal manera que solamente se pueda ejecutar un grupo de instrucciones dependiendo de cual de las opciones se evaluá verdadero. De la misma manera que en el caso del condicional tradicional la parte alternativa del final es opcional.
+	</section>
+
+	<section data-markdown>
+		## Condicionales Enlazados: Esquema en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+	// Instrucciones
+
+	if(//Condicion 1)
+	{
+	    // Instruccion 1 cuando la condicion 1 se cumple
+	    // Instruccion 2 cuando la condicion 1 se cumple
+	    // ...
+	    // Instruccion m cuando la condicion 1 se cumple
+	}
+	else if(//Condicion 2)
+	{
+	    // Instruccion 1 cuando la condicion 2 se cumple
+	    // Instruccion 2 cuando la condicion 2 se cumple
+	    // ...
+	    // Instruccion n cuando la condicion 2 se cumple
+	}
+	// ...
+	else if(//Condicion i)
+	{
+	    // Instruccion 1 cuando la condicion i se cumple
+	    // Instruccion 2 cuando la condicion i se cumple
+	    // ...
+	    // Instruccion o cuando la condicion i se cumple
+	}
+	// ...
+	else if(//Condicion n-1)
+	{
+	    // Instruccion 1 cuando la condicion n-1 se cumple
+	    // Instruccion 2 cuando la condicion n-1 se cumple
+	    // ...
+	    // Instruccion p cuando la condicion n-1 se cumple
+	}
+	else
+	{
+	    // Instruccion 1 cuando ninguna de las condiciones se cumple
+	    // Instruccion 2 cuando ninguna de las condiciones se cumple
+	    // ...
+	    // Instruccion q cuando ninguna de las condiciones se cumple
+	}
+
+
+	// Mas instrucciones
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Condicionales Enlazados: Esquema en Python
+
+```python
+# Instrucciones
+
+if #Condicion 1:
+    # Instruccion 1 cuando la condicion 1 se cumple
+    # Instruccion 2 cuando la condicion 1 se cumple
+    # ...
+    # Instruccion m cuando la condicion 1 se cumple
+elif #Condicion 2:
+    # Instruccion 1 cuando la condicion 2 se cumple
+    # Instruccion 2 cuando la condicion 2 se cumple
+    # ...
+    # Instruccion n cuando la condicion 2 se cumple
+# ...
+elif #Condicion i:
+    # Instruccion 1 cuando la condicion i se cumple
+    # Instruccion 2 cuando la condicion i se cumple
+    # ...
+    # Instruccion o cuando la condicion i se cumple
+# ...
+elif #Condicion n-1:
+    # Instruccion 1 cuando la condicion n-1 se cumple
+    # Instruccion 2 cuando la condicion n-1 se cumple
+    # ...
+    # Instruccion p cuando la condicion n-1 se cumple
+else:
+    # Instruccion 1 cuando ninguna de las condiciones se cumple
+    # Instruccion 2 cuando ninguna de las condiciones se cumple
+    # ...
+    # Instruccion q cuando ninguna de las condiciones se cumple
+
+# Mas instrucciones
+```
+	</section>
+
+	<section>
+		<h2>Condicionales Enlazados: Ejemplo</h2>
+
+		<p>
+			Para un procedimiento que permite comparar dos números reales (\(a, b\)), se pueden tener las siguientes condiciones:
+		</p>
+
+		<ul>
+			<li class="fragment">
+				Si el número \(a\) es mayor que \(b\), el programa deberá indicar que \(a\) es mayor que \(b\).
+			</li>
+			<li class="fragment">
+				Si el número \(b\) es mayor que \(a\), el programa deberá indicar que \(b\) es mayor que \(a\).
+			</li>
+			<li class="fragment">
+				Si el número \(a\) es igual al número \(b\), el programa deberá indicar que ambos números son iguales.
+			</li>
+		</ul>
+	</section>
+
+	<section>
+		<h2>Condicionales Enlazados: Ejemplo</h2>
+			
+		<p>
+			Podemos escribir lo anterior de la siguiente forma:
+		</p>
+
+		<p class="fragment">
+			$$\begin{cases} a > b, & \text{si $a > b$;} \\ b > a, & \text{si $b > a$;} \\ a = b, & \text{en otro caso.}\end{cases}$$
+		</p>
+	</section>
+
+	<section data-markdown>
+		## Condicionales Enlazados: Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void comparar(float a, float b)
+{
+	if(a > b)
+	{
+	    cout << "a es mayor que b." << endl;
+	}
+	else if (b > a)
+	{
+	    cout << "b es mayor que a." << endl;
+	}
+	else
+	{
+	    cout << "Los numeros son iguales." << endl;
+	}
+}
+
+int main()
+{
+	float a = 0;
+	float b = 0;
+	cout << "Ingrese el valor de a: \t";
+	cin >> a;
+	cout << "Ingrese el valor de b: \t";
+	cin >> b;
+	comparar(a, b);
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Condicionales Enlazados: Ejemplo en Python
+
+```python
+def comparar(a, b):
+	if a > b:
+	    print("a es mayor que b.")
+	elif b > a:
+	    print("b es mayor que a.")
+	else:
+	    print("Los numeros son iguales.")
+
+a = float(input("Ingrese el valor de a: \t"))
+b = float(input("Ingrese el valor de b: \t"))
+comparar(a, b)
+```
+	</section>
+
+	<section data-markdown>
+		## Condicionales Enlazados: Ejemplo
+
+		Si un cliente lleva más de 5 productos del mismo tipo le realizan un descuento del 5%. Si lleva más de 10 productos del mismo tipo le realizan un descuento del 10%. Si lleva más de 20 productos del mismo tipo le realizan un descuento del 20%. Realizar un programa que dado el número de productos y el precio del producto determine el valor a pagar por el cliente.
+	</section>
+
+	<section data-markdown>
+		<script type="text/template">
+		## Condicionales Enlazados: Ejemplo
+
+		La siguiente función permitirá calcular el valor deseado:
+
+		_pagoFinal(n, precio)_ = _valor_
+
+		<!-- .element: class="fragment" -->
+		Si se establecen las variables:
+
+		- <!-- .element: class="fragment" -->
+		precio := Valor de cada producto
+		- <!-- .element: class="fragment" -->
+		n := Número de productos
+		- <!-- .element: class="fragment" -->
+		valor := Valor total a pagar despues de aplicar el descuento
+		</script>
+	</section>
+
+	<section>
+		<h2>Condicionales Enlazados: Ejemplo</h2>
+
+		<p>
+			Entonces tenemos que:
+		</p>
+
+		<p class="fragment">
+			<i>pagoFinal</i> = \(\mathbb{Z} \times \mathbb{R} \rightarrow \mathbb{R}\)
+		</p>
+
+		<p class="fragment">
+			$$(n, precio) \rightarrow \begin{cases} n * precio, & \text{si $n < 5$;} \\ n * precio * 0.95, & \text{si $5 < n \leq 10$;} \\ n * precio * 0.9, & \text{si $10 < n \leq 20$;} \\ n * precio * 0.8, & \text{en otro caso.}\end{cases}$$
+		</p>
+	</section>
+
+	<section data-markdown>
+		## Condicionales Enlazados: Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+float pagoFinal(int n, float precio)
+{
+	if(n <= 5)
+	{
+	    return n * precio;
+	}
+	else if(5 < n && n <= 10)
+	{
+	    return n * precio * 0.95;
+	}
+	else if(10 < n && n <= 20)
+	{
+	    return n * precio * 0.9;
+	}
+	else
+	{
+	    return n * precio * 0.8;
+	}
+}
+
+int main()
+{
+	int n = 0;
+	float precio = 0;
+	float y = 0;
+	cout << "Ingrese el numero de productos: \t";
+	cin >> n;
+	cout << "Ingrese el precio del producto: \t";
+	cin >> precio;
+	y = pagoFinal(n, precio);
+	cout << "El valor a pagar es: " << y << endl;
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Condicionales Enlazados: Ejemplo en Python
+
+```python
+def pagoFinal(n, precio):
+	if n <= 5:
+	    return n * precio
+	elif 5 < n and n <= 10:
+	    return n * precio * 0.95
+	elif 10 < n and n <= 20:
+	    return n * precio * 0.9
+	else:
+	    return n * precio * 0.8
+
+n = int(input("Ingrese el numero de productos: \t"))
+precio = float(input("Ingrese el precio del producto: \t"))
+y = pagoFinal(n, precio)
+print("El valor a pagar es: " + str(y))
+```
+	</section>
+</section>

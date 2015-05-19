@@ -1,0 +1,305 @@
+<section>
+	<section data-markdown>
+		## Condicional Sí (if)
+	</section>
+
+	<section data-markdown>
+		<script type="text/template">
+		## Condicional Sí (if): Introducción
+
+		Es posible tener programas en los que se deban cubrir diferentes casos, para los cuales se deberán retornar diferentes valores dadas unas condiciones.
+
+		<!-- .element: class="fragment" -->
+		La estructura de control condicional o de selección permite ejecutar, o un grupo de instrucciones u otro grupo si una condición se cumple o no.
+		</script>
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Representación mediante Diagrama de Flujo
+
+		![Alt text](http://www.geocities.ws/david_ees/Imagenes/if-else.gif)
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Esquema en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+	// Instrucciones
+
+	if(//Condicion)
+	{
+	    // Instruccion 1 cuando la condicion es verdadera
+	    // Instruccion 2 cuando la condicion es verdadera
+	    // ...
+	    // Instruccion n cuando la condicion es verdadera
+	}
+	else
+	{
+	    // Instruccion 1 cuando la condicion es falsa
+	    // Instruccion 2 cuando la condicion es falsa
+	    // ...
+	    // Instruccion n cuando la condicion es falsa
+	}
+
+	// Mas instrucciones
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Esquema en Python
+
+```python
+# Instrucciones
+
+if #Condicion:
+	# Instruccion 1 cuando la condicion es verdadera
+	# Instruccion 2 cuando la condicion es verdadera
+	# ...
+	# Instruccion n cuando la condicion es verdadera
+else:
+	# Instruccion 1 cuando la condicion es falsa
+	# Instruccion 2 cuando la condicion es falsa
+	# ...
+	# Instruccion n cuando la condicion es falsa
+
+# Mas instrucciones
+```
+	</section>
+
+	<section>
+		<h2>Condicional Sí (if): Ejemplo</h2>
+
+		<p>
+			La función que permite calcular el valor absoluto de un número real es una función que recibe como parámetro de entrada un número real y retorna la distancia de ese valor al origen. La función valor absoluto en notación matemática se define como:
+		</p>
+
+		<p class="fragment">
+			<i>valorAbsoluto</i> : \(\mathbb{R} \rightarrow \mathbb{R}\)
+
+			$$􏰄(x) = \begin{cases} x, & \text{si $x \geq 0$;} \\ -x, & \text{en otro caso.}\end{cases}$$
+		</p>
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+float valorAbsoluto(float x)
+{
+	if(x >= 0)
+	{
+	    return x;
+	}
+	else
+	{
+	    return -x;
+	}
+}
+
+int main()
+{
+	float x = 0;
+	float y = 0;
+	cout << "Ingrese un numero: \t";
+	cin >> x;
+	y = valorAbsoluto(x);
+	cout << "El valor absoluto de " << x << " es: " << y << endl;
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Ejemplo en Python
+
+```python
+def valorAbsoluto(x):
+	if x >= 0:
+	    return x
+	else:
+	    return -x
+
+x = float(input("Ingrese un numero: \t"))
+y = valorAbsoluto(x)
+print("El valor absoluto de " + str(x) + " es: " + str(y))
+```
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+float valorAbsoluto(float x)
+{
+	return x >= 0 ? x : -x;
+}
+
+int main()
+{
+	float x = 0;
+	float y = 0;
+	cout << "Ingrese un numero: \t";
+	cin >> x;
+	y = valorAbsoluto(x);
+	cout << "El valor absoluto de " << x << " es: " << y << endl;
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Ejemplo en Python
+
+```python
+def valorAbsoluto(x):
+	return x if x >= 0 else -x
+
+x = float(input("Ingrese un numero: \t"))
+y = valorAbsoluto(x)
+print("El valor absoluto de " + str(x) + " es: " + str(y))
+```
+	</section>
+
+	<section>
+		<h2>Condicional Sí (if): Ejemplo</h2>
+
+		<p>
+			Una función que permite determinar el máximo de dos números reales, se puede definir como:
+		</p>
+
+		<p class="fragment">
+			<i>maximo</i> : \(\mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}\)
+		</p>
+
+		<p class="fragment">
+			aquí se tienen dos casos, si el número \(a\) es mayor que \(b\) el valor máximo es \(a\); en otro caso se debe retornar \(b\). En notación matemática esto puede ser escrito de la siguiente forma:
+		</p>
+
+		<p class="fragment">
+			<i>maximo</i> : \(\mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}\)
+
+			$$􏰄(a, b) = \begin{cases} a, & \text{si $a > b$;} \\ b, & \text{en otro caso.}\end{cases}$$
+		</p>
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+float maximo(float a, float b)
+{
+	if(a > b)
+	{
+	    return a;
+	}
+	else
+	{
+	    return b;
+	}
+}
+
+int main()
+{
+	float a = 0;
+	float b = 0;
+	float y = 0;
+	cout << "Ingrese un numero: \t";
+	cin >> a;
+	cout << "Ingrese un numero: \t";
+	cin >> b;
+	y = maximo(a, b);
+	cout << y << " es el mayor de los 2 numeros." << endl;
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Ejemplo en Python
+
+```python
+def maximo(a, b):
+	if a > b:
+	    return a
+	else:
+	    return b
+
+a = float(input("Ingrese un numero: \t"))
+b = float(input("Ingrese un numero: \t"))
+y = maximo(a, b)
+print(str(y) + " es el mayor de los 2 numeros.")
+```
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Usando el operador ternario
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+float maximo(float a, float b)
+{
+	return a > b ? a : b;
+}
+
+int main()
+{
+	float a = 0;
+	float b = 0;
+	float y = 0;
+	cout << "Ingrese un numero: \t";
+	cin >> a;
+	cout << "Ingrese un numero: \t";
+	cin >> b;
+	y = maximo(a, b);
+	cout << y << " es el mayor de los 2 numeros." << endl;
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Condicional Sí (if): Ejemplo en Python
+
+```python
+def maximo(a, b):
+	return a if a > b else b
+
+a = float(input("Ingrese un numero: \t"))
+b = float(input("Ingrese un numero: \t"))
+y = maximo(a, b)
+print(str(y) + " es el mayor de los 2 numeros.")
+```
+	</section>
+</section>

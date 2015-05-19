@@ -1,0 +1,252 @@
+<section>
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa
+	</section>
+
+	<section data-markdown>
+		<script type="text/template">
+		## Estructura condicional sin opción alternativa: Definición
+
+		Un caso muy común es cuando se desea que se ejecute un grupo de instrucciones solo cuando se cumpla una condición y que posteriorment se continue con la ejecución del resto del programa. En estos casos se requiere de un condicional sin opción alternativa.
+
+		<!-- .element: class="fragment" -->
+		Este tipo de estructura se suele utilizar cuando se desea agregar una evaluación intermedia de una expresión cuando la condición se evaluá verdadero, pero que no tiene impacto sobre la ejecución del resto del programa que le sigue al condicional.
+		</script>
+	</section>
+
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa: Representación mediante Diagrama de Flujo
+
+		![Alt text](https://elementoscomputaciontec.wikispaces.com/file/view/Diagrama_flujo_condicionales.gif/310346834/Diagrama_flujo_condicionales.gif)
+	</section>
+
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa: Esquema en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+	// Instrucciones
+
+	if(//Condicion)
+	{
+	    // Instruccion 1 cuando la condicion es verdadera
+	    // Instruccion 2 cuando la condicion es verdadera
+	    // ...
+	    // Instruccion n cuando la condicion es verdadera
+	}
+
+	// Mas instrucciones
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa: Esquema en Python
+
+```python
+# Instrucciones
+
+if #Condicion:
+	# Instruccion 1 cuando la condicion es verdadera
+	# Instruccion 2 cuando la condicion es verdadera
+	# ...
+	# Instruccion n cuando la condicion es verdadera
+
+# Mas instrucciones
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa: Ejemplo
+
+		Cuando se realiza la impresión de un número en la consola o cualquier otro dispositivo de salida, a veces se desea que si un número es positivo, este sea impreso con el signo +, es decir, que para el caso del número 3.14159265 su impresión seria +3.14159265 en vez de su tradicional representación 3.14159265. Para el caso del cero (0) y los números negativos la impresión es la usual.
+	</section>
+
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa: Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void imprimir(float x)
+{
+	if(x > 0)
+	{
+	    cout << "+";
+	}
+	cout << x << endl;
+}
+
+int main()
+{
+	float x = 0;
+	cout << "Ingrese un numero: \t";
+	cin >> x;
+	imprimir(x);
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa: Ejemplo en Python
+
+```python
+def imprimir(x):
+	if x > 0:
+	    print("+", end="")
+	print(str(x))
+
+x = float(input("Ingrese un numero: \t"))
+imprimir(x)
+```
+	</section>
+
+	<section>
+		<h2>Estructura condicional sin opción alternativa: Ejemplo</h2>
+
+		En los lenguajes de programación típicamente están definidos los operadores lógicos de la negación (\(\lnot\)), la conjunción (\(\land\)) y la disyunción (\(\lor\)), pero el condicional y el bicondicional no lo están, por lo tanto si se quiere utilizar estos operadores es necesario construir las funciones que permitan utilizar estos operadores. Para el caso del condicional y a partir de la tabla de verdad correspondiente.
+	</section>
+
+	<section>
+		<h2>Estructura condicional sin opción alternativa: Ejemplo</h2>
+
+		<p>
+			Se puede definir una función que permita calcular la operación condicional de un par de variables booleanas y que retorna el resultado de operar los valores mediante un condicional, de la siguiente manera:
+		</p>
+
+		<p class="fragment">
+			<i>condicional</i> : \(\mathbb{B} \times \mathbb{B} \rightarrow \mathbb{B}\)
+		</p>
+
+		<p class="fragment">
+			aquí se tienen dos casos, primero, si el antecedente es verdadero y el consecuente es falso, entonces el resultado de aplicar el condicional es falso, para cualquier otro caso el condicional es verdadero.
+		</p>
+	</section>
+
+	<section>
+		<h2>Estructura condicional sin opción alternativa: Ejemplo</h2>
+
+		<p>
+			En notación matemática esto puede ser escrito de la siguiente manera:
+		</p>
+
+		<p class="fragment">
+			<i>condicional</i> : \(\mathbb{B} \times \mathbb{B} \rightarrow \mathbb{B}\)
+
+			$$􏰄(p, q) = \begin{cases} F, & \text{si $\xi(p) = V \land \xi(q) = F;$} \\ V, & \text{en cualquier otro caso.}\end{cases}$$
+		</p>
+	</section>
+
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa: Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+bool condicional(bool p, bool q)
+{
+	if(p == true && q == false)
+	{
+	    return false;
+	}
+	return true;
+}
+
+int main()
+{
+	bool p = false;
+	bool q = false;
+	bool y = false;
+	cout << "Ingrese un booleano: \t";
+	cin >> p;
+	cout << "Ingrese un booleano: \t";
+	cin >> q;
+	y = condicional(p, q);
+	cout << "El condicional entre " << p;
+	cout << " y " << q;
+	cout << " es: " << y << endl;
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa: Ejemplo en Python
+
+```python
+def condicional(p, q):
+	if p == True and q == False:
+	    return False
+	return True
+
+p = bool(int(input("Ingrese un booleano: \t")))
+q = bool(int(input("Ingrese un booleano: \t")))
+y = condicional(p, q)
+print("El condicional entre " + str(p), end="")
+print(" y " + str(q), end="")
+print(" es: " + str(y))
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa: Ejemplo en C++
+
+```cpp
+#include &lt;iostream&gt;
+
+using namespace std;
+
+bool condicional(bool p, bool q)
+{
+	return (p == true && q == false) ? false : true;
+}
+
+int main()
+{
+	bool p = false;
+	bool q = false;
+	bool y = false;
+	cout << "Ingrese un booleano: \t";
+	cin >> p;
+	cout << "Ingrese un booleano: \t";
+	cin >> q;
+	y = condicional(p, q);
+	cout << "El condicional entre " << p;
+	cout << " y " << q;
+	cout << " es: " << y << endl;
+
+	return 0;
+}
+```
+	</section>
+
+	<section data-markdown>
+		## Estructura condicional sin opción alternativa: Ejemplo en Python
+
+```python
+def condicional(p, q):
+	return False if (p == True and q == False) else True
+
+p = bool(int(input("Ingrese un booleano: \t")))
+q = bool(int(input("Ingrese un booleano: \t")))
+y = condicional(p, q)
+print("El condicional entre " + str(p), end="")
+print(" y " + str(q), end="")
+print(" es: " + str(y))
+```
+	</section>
+</section>
